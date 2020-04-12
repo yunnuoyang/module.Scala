@@ -103,15 +103,15 @@ object ObjAndClass {
 //  println(num(1,2))
   println(nimingFun(""))
 
-  def log(date:Date,log:String): Unit ={
+  def log(date:Date=new Date(),log:String): Unit ={
     println(date+log)
   }
-  var current=new Date();
-  var showLog=log(current:Date,_:String);
+  var showLog=log(new Date(),_:String);
 
   showLog("aaa")
   Thread.sleep(2000)
   showLog("bbb")
+  Thread.sleep(2000)
   showLog("ccc")
 
   /**
