@@ -1,5 +1,7 @@
 package com.module
 
+import java.util.Date
+
 /**
  * 1.scala中定义在object中的变量，方法都是静态的,object叫对象，相当于java中的单例对象。object不可以传参,Trait也不可传参。
  * * 2.scala 中一行代码后可以写“;”也可以不写，会有分号推断机制。多行代码写在一行要用分号隔开。
@@ -32,7 +34,8 @@ object ObjAndClass {
 //    forUse()
 //    print(fun(5))
 //    println(hasDefault())
-    hasElemts("a","b","c")
+//    hasElemts("a","b","c")
+
   }
 
   /**
@@ -86,5 +89,51 @@ object ObjAndClass {
     println()
     elems.foreach(print(_))
   }
+
+  /**
+   * 匿名函数
+   */
+  val nimingFun=(msg:String)=>{
+    "HELLO WORD"
+  }
+  val num=(a:Int,b:Int)=>{
+    a*b
+  }
+
+//  println(num(1,2))
+  println(nimingFun(""))
+
+  def log(date:Date,log:String): Unit ={
+    println(date+log)
+  }
+  var current=new Date();
+  var showLog=log(current:Date,_:String);
+
+  showLog("aaa")
+  Thread.sleep(2000)
+  showLog("bbb")
+  showLog("ccc")
+
+  /**
+   *
+   * @param a
+   * @param b
+   * @return
+   */
+  def num(a:Int,b:Int): Int ={
+    a*b
+  }
+
+  /**
+   * 高阶函数
+   * @param msg
+   * @param fun 参数为函数
+   * @return
+   */
+  def paramIsFun(msg:String,fun:(Int,Int)=>Int): String ={
+    msg+fun(100,200)
+  }
+
+  println(paramIsFun("计算3*5的结果为",num))
 
 }
